@@ -9,12 +9,16 @@ df = pd.read_csv(
     on_bad_lines='skip'
 )
 
+# CLEAN COLUMN NAMES
+df.columns = df.columns.str.strip()
+
 # Title
 st.title("📊 Supply Chain Profitability Dashboard")
 
 # KPIs
 st.subheader("Key Metrics")
 col1, col2 = st.columns(2)
+st.write(df.columns)
 
 col1.metric("Total Revenue", round(df['Sales'].sum(), 2))
 col2.metric("Total Profit", round(df['Order Profit Per Order'].sum(), 2))
