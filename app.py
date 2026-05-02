@@ -2,7 +2,12 @@ import streamlit as st
 import pandas as pd
 
 # Load data
-df = pd.read_csv("APL_Logistics1.csv", encoding='latin1', on_bad_lines='skip')
+df = pd.read_csv(
+    "APL_Logistics1.csv",
+    encoding='latin1',
+    engine='python',
+    on_bad_lines='skip'
+)
 
 # Title
 st.title("📊 Supply Chain Profitability Dashboard")
